@@ -1,4 +1,18 @@
+import type { Metadata } from 'next';
 import Section from '../../components/Section';
+
+export const metadata: Metadata = {
+  title: 'Disclosures | Nashadow Credit & Funding Consulting',
+  description:
+    'Review Nashadow’s plain-language disclosures about advisory scope, privacy, and the absence of guaranteed credit or funding outcomes.',
+  openGraph: {
+    title: 'Disclosures | Nashadow Credit & Funding Consulting',
+    description:
+      'Understand Nashadow’s disclaimers on legal advice, financial guarantees, lender decisions, and privacy for your information.',
+    url: 'https://www.nashadow.com/disclosures',
+    type: 'article'
+  }
+};
 
 const disclosures = [
   {

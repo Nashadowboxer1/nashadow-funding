@@ -1,5 +1,19 @@
+import type { Metadata } from 'next';
 import ContactForm from '../../components/ContactForm';
 import Section from '../../components/Section';
+
+export const metadata: Metadata = {
+  title: 'Contact Nashadow | Credit & Funding Consulting',
+  description:
+    'Reach out to Nashadow to discuss credit analysis, funding readiness, or advisory support. Expect a response within two business days.',
+  openGraph: {
+    title: 'Contact Nashadow | Credit & Funding Consulting',
+    description:
+      'Share your objectives with Nashadow for thoughtful credit and funding consulting. Learn what happens after you submit the form.',
+    url: 'https://www.nashadow.com/contact',
+    type: 'article'
+  }
+};
 
 export default function ContactPage() {
   return (

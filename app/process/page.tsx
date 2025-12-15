@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import Steps from '../../components/Steps';
 import Section from '../../components/Section';
 import CTABanner from '../../components/CTABanner';
+
+export const metadata: Metadata = {
+  title: 'How It Works | Nashadow Credit & Funding Consulting',
+  description:
+    'See Nashadow’s four-step approach: Assessment, Strategy Plan, Implementation Guidance, and Ongoing Support, with transparent disclaimers.',
+  openGraph: {
+    title: 'How It Works | Nashadow Credit & Funding Consulting',
+    description:
+      'Understand Nashadow’s process for credit and funding consulting, including assessment, planning, guidance, and continued support.',
+    url: 'https://www.nashadow.com/process',
+    type: 'article'
+  }
+};
 
 const steps = [
   {

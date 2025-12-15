@@ -1,8 +1,22 @@
+import type { Metadata } from 'next';
 import CTABanner from '../components/CTABanner';
 import Card from '../components/Card';
 import Hero from '../components/Hero';
 import Section from '../components/Section';
 import Steps from '../components/Steps';
+
+export const metadata: Metadata = {
+  title: 'Nashadow Credit & Funding Consulting | Home',
+  description:
+    'Calm, process-focused guidance for credit analysis, funding readiness, and ongoing advisory support. Learn what Nashadow offers and how we collaborate.',
+  openGraph: {
+    title: 'Nashadow Credit & Funding Consulting | Home',
+    description:
+      'Discover Nashadow’s structured approach to credit preparation, business credit structuring, and funding readiness with clear steps and inclusive guidance.',
+    url: 'https://www.nashadow.com/',
+    type: 'website'
+  }
+};
 
 const services = [
   {

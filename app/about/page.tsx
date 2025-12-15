@@ -1,4 +1,18 @@
+import type { Metadata } from 'next';
 import Section from '../../components/Section';
+
+export const metadata: Metadata = {
+  title: 'About Nashadow Credit & Funding Consulting',
+  description:
+    'Learn about Nashadow’s origin, values, and commitment to integrity, discretion, clarity, and preparation in credit and funding guidance.',
+  openGraph: {
+    title: 'About Nashadow Credit & Funding Consulting',
+    description:
+      'Discover the meaning of Nashadow, our growth story, and the principles that guide our credit and funding consulting practice.',
+    url: 'https://www.nashadow.com/about',
+    type: 'article'
+  }
+};
 import CTABanner from '../../components/CTABanner';
 
 export default function AboutPage() {

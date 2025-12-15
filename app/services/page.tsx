@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import Card from '../../components/Card';
 import CTABanner from '../../components/CTABanner';
 import Section from '../../components/Section';
+
+export const metadata: Metadata = {
+  title: 'Services | Nashadow Credit & Funding Consulting',
+  description:
+    'Explore Nashadow services: credit analysis, correction strategy, business credit structuring, funding readiness, and ongoing advisory support.',
+  openGraph: {
+    title: 'Services | Nashadow Credit & Funding Consulting',
+    description:
+      'What to expect from Nashadow services across credit analysis, correction strategies, business structuring, and ongoing advisory support.',
+    url: 'https://www.nashadow.com/services',
+    type: 'article'
+  }
+};
 
 const services = [
   {
