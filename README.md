@@ -7,6 +7,7 @@ A marketing site for Nashadow Credit & Funding Consulting built with Next.js (Ap
    ```bash
    npm install
    ```
+   If install requests are blocked in your environment (403 or proxy errors), ensure access to `registry.npmjs.org` or mirror the packages via an approved registry.
 2. Run the dev server:
    ```bash
    npm run dev
