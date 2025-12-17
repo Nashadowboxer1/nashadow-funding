@@ -19,6 +19,8 @@ const initialState: FormState = {
   message: ''
 };
 
+const placeholderEndpoint = '/api/contact';
+
 export default function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -34,14 +36,24 @@ export default function ContactForm() {
     setError('');
 
     const isValidEmail = /\S+@\S+\.\S+/.test(form.email);
-    if (!form.name || !isValidEmail || !form.message) {
+    if (!form.name.trim() || !isValidEmail || !form.message.trim()) {
       setError('Please provide your name, a valid email, and a short message.');
       setStatus('idle');
       return;
     }
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 1200));
+      const response = await fetch(placeholderEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data?.message || 'Unable to submit right now.');
+      }
+
       setStatus('success');
       setForm(initialState);
     } catch (err) {
@@ -52,7 +64,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="card-surface space-y-4">
+    <form onSubmit={handleSubmit} className="card-surface space-y-4" aria-busy={status === 'submitting'}>
       <div className="space-y-2">
         <h2 className="text-xl font-semibold text-white">Tell us about your goals</h2>
         <p className="text-sm text-silver/80">
@@ -110,7 +122,7 @@ export default function ContactForm() {
         />
       </label>
       {error && <p className="text-sm text-red-300">{error}</p>}
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
         <button
           type="submit"
           className="btn-primary"
@@ -118,12 +130,22 @@ export default function ContactForm() {
         >
           {status === 'submitting' ? 'Sending…' : 'Send message'}
         </button>
-        {status === 'success' && <span className="text-sm text-silver/80">Thanks for reaching out. We will reply soon.</span>}
-        {status === 'error' && <span className="text-sm text-red-300">{error}</span>}
+        <span
+          className="text-sm"
+          role="status"
+          aria-live="polite"
+        >
+          {status === 'success' && <span className="text-silver/80">Thanks for reaching out. We will reply soon.</span>}
+          {status === 'error' && <span className="text-red-300">{error}</span>}
+        </span>
       </div>
       <p className="text-xs text-silver/60">
         This form is for planning purposes. Submitting does not guarantee funding or credit outcomes. We respect your privacy
         and do not sell personal data.
+      </p>
+      <p className="text-xs text-silver/60">
+        Submissions currently use a placeholder endpoint ({placeholderEndpoint}). Replace it with your preferred email, CRM,
+        or ticketing integration before launching.
       </p>
     </form>
   );

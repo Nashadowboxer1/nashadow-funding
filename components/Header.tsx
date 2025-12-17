@@ -16,6 +16,8 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const menuId = 'primary-navigation';
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     window.addEventListener('scroll', onScroll);
@@ -62,6 +64,8 @@ export default function Header() {
           type="button"
           aria-label="Toggle navigation menu"
           onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          aria-controls={menuId}
           className="md:hidden"
         >
           <span className="sr-only">Menu</span>
@@ -74,7 +78,7 @@ export default function Header() {
         </button>
       </div>
       {open && (
-        <div className="border-t border-white/10 bg-graphite/95 md:hidden">
+        <div id={menuId} className="border-t border-white/10 bg-graphite/95 md:hidden">
           <div className="container mx-auto flex flex-col gap-4 px-4 py-6 text-sm text-silver/90">
             {links.map(link => (
               <Link
