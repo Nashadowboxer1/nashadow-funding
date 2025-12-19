@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background: radial-gradient(circle at 30% 20%, rgba(91, 109, 250, 0.15), transparent 25%),
+    radial-gradient(circle at 80% 0%, rgba(159, 179, 255, 0.15), transparent 20%),
+    #0d0f12;
+}
+
+section {
+  scroll-margin-top: 120px;
+}
+
+.container {
+  max-width: 1120px;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full bg-indigo px-5 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-sky focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-full border border-silver/40 px-5 py-3 text-sm font-semibold text-silver transition hover:-translate-y-0.5 hover:border-indigo hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo;
+}
+
+.card-surface {
+  @apply rounded-2xl border border-white/5 bg-white/5 p-6 shadow-soft backdrop-blur;
+}
